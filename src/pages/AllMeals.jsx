@@ -19,25 +19,29 @@ const AllMeals = () => {
     // let url = `http://localhost:5000/meals?category=${category}`;
     let url = `https://honey-meal-server.vercel.app/meals?category=${category}`;
     if (filterByPrice && (minPrice || maxPrice)) {
-      if(!minPrice){
-        url += `&priceRange={"min":0,"max":${maxPrice}}`;}
-      else if(!maxPrice){
-        url += `&priceRange={"min":${minPrice},"max":9999999999}`;}
-      else{
-      url += `&priceRange={"min":${minPrice},"max":${maxPrice}}`;}
+      if (!minPrice) {
+        url += `&priceRange={"min":0,"max":${maxPrice}}`;
+      } else if (!maxPrice) {
+        url += `&priceRange={"min":${minPrice},"max":9999999999}`;
+      } else {
+        url += `&priceRange={"min":${minPrice},"max":${maxPrice}}`;
+      }
     }
     const response = await axios.get(url);
     return response.data.meals;
   };
 
-  const { data: meals, isLoading, error } = useQuery({
+  const {
+    data: meals,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["meals", category, filterByPrice, minPrice, maxPrice],
     queryFn: fetchMeals,
   });
-  
 
-  if (isLoading) return <Loading />;  // Show loading spinner
-  if (error) return <div>Error: {error.message}</div>;  // Handle error state
+  if (isLoading) return <Loading />; // Show loading spinner
+  if (error) return <div>Error: {error.message}</div>; // Handle error state
   // console.log(meals)
   return (
     <div className="container mx-auto p-4">
@@ -51,9 +55,9 @@ const AllMeals = () => {
             className="select select-bordered"
           >
             <option value="All">All</option>
-            <option value="Breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Dinner">Dinner</option>
+            <option value="Breakfast">3days</option>
+            <option value="Lunch">7days</option>
+            <option value="Dinner">10days</option>
           </select>
         </div>
 
@@ -94,7 +98,9 @@ const AllMeals = () => {
         {meals.length > 0 ? (
           meals.map((meal) => <MealCard key={meal._id} meal={meal} />)
         ) : (
-          <p className="text-center col-span-full text-gray-500">No meals found.</p>
+          <p className="text-center col-span-full text-gray-500">
+            No Camp found.
+          </p>
         )}
       </div>
     </div>
