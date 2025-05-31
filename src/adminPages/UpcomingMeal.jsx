@@ -106,9 +106,9 @@ const UpcomingMeal = () => {
         <table className="table">
           <thead>
             <tr>
-              <th>Meal Name</th>
+              <th>Camp Name</th>
               <th>Category</th>
-              <th>Price</th>
+              <th>Camp Fee</th>
               <th>Likes</th>
               <th></th>
             </tr>
@@ -147,9 +147,9 @@ const UpcomingMeal = () => {
           </tbody>
           <tfoot>
             <tr>
-              <th>Meal Name</th>
+              <th>Camp Name</th>
               <th>Category</th>
-              <th>Price</th>
+              <th>Camp Fee</th>
               <th>Likes</th>
               <th></th>
             </tr>
@@ -158,7 +158,7 @@ const UpcomingMeal = () => {
       </div>
 
       <button className="btn btn-primary mt-6" onClick={toggleModal}>
-        Add a New Meal
+        Add a New Camp
       </button>
 
       {isModalOpen && (
@@ -168,7 +168,7 @@ const UpcomingMeal = () => {
           open
         >
           <div className="modal-box">
-            <h3 className="font-bold text-lg">Add an Upcoming Meal</h3>
+            <h3 className="font-bold text-lg">Add an Upcoming Camp</h3>
             <form
               onSubmit={handleSubmit(handleAddMeal)}
               className="space-y-4 mt-4"
@@ -176,7 +176,7 @@ const UpcomingMeal = () => {
               <input
                 {...register("title", { required: true })}
                 type="text"
-                placeholder="Meal Title"
+                placeholder="Camp Title"
                 className="input input-bordered w-full"
               />
               {errors.title && (
@@ -190,9 +190,9 @@ const UpcomingMeal = () => {
                 <option value="" disabled selected>
                   Select a Category
                 </option>
-                <option value="Breakfast">Breakfast</option>
-                <option value="Lunch">Lunch</option>
-                <option value="Dinner">Dinner</option>
+                <option value="3days">3days</option>
+                <option value="7days">7days</option>
+                <option value="10days">10days</option>
               </select>
               {errors.category && (
                 <p className="text-red-500">Category is required</p>
@@ -211,11 +211,13 @@ const UpcomingMeal = () => {
               <input
                 {...register("ingredients", { required: true })}
                 type="text"
-                placeholder="Comma-separated Ingredients"
+                placeholder="Comma-separated Healthcare Professional"
                 className="input input-bordered w-full"
               />
               {errors.ingredients && (
-                <p className="text-red-500">Ingredients are required</p>
+                <p className="text-red-500">
+                  Healthcare Professional are required
+                </p>
               )}
 
               <textarea
@@ -230,16 +232,16 @@ const UpcomingMeal = () => {
               <input
                 {...register("price", { required: true, valueAsNumber: true })}
                 type="number"
-                placeholder="Price"
+                placeholder="Camp Fee"
                 className="input input-bordered w-full"
               />
               {errors.price && (
-                <p className="text-red-500">Price is required</p>
+                <p className="text-red-500">Camp Fee is required</p>
               )}
 
               <div className="modal-action">
                 <button type="submit" className="btn btn-primary">
-                  Add Meal
+                  Add Camp
                 </button>
                 <button type="button" className="btn" onClick={toggleModal}>
                   Close

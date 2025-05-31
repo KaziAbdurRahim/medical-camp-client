@@ -71,7 +71,7 @@ const AdminAllReviews = () => {
         <table className="table">
           <thead>
             <tr>
-              <th>Meal Title</th>
+              <th>Camp Title</th>
               <th>Likes</th>
               <th>Review Count</th>
               <th>Actions</th>
@@ -88,7 +88,7 @@ const AdminAllReviews = () => {
                     <Link to={`/meal/${review._id}`}>
                       <button className="btn btn-sm btn-info mr-2">
                         {" "}
-                        View Meal{" "}
+                        View Camp{" "}
                       </button>
                     </Link>
                     <button
