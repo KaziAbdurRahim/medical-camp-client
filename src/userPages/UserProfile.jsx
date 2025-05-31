@@ -13,7 +13,7 @@ const UserProfile = () => {
     queryKey: ["user", userEmail], // Use queryKey instead of passing an array directly
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/users/${userEmail}`)
+        .get(`https://medical-camp-server-zeta.vercel.app/users/${userEmail}`)
         .then((res) => res.data.user),
     enabled: !!userEmail, // Only fetch if userEmail is available
   });

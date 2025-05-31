@@ -15,7 +15,7 @@ const ServeMeal = () => {
 
   // useQuery hook to fetch meal requests with search parameters
   const { data, isLoading, error, refetch } = useQuery({
-    // "http://localhost:5000/meal-requests"
+    // "https://medical-camp-server-zeta.vercel.app/meal-requests"
     queryKey: [
       "mealRequests",
       search.username,
@@ -25,7 +25,7 @@ const ServeMeal = () => {
     ],
     queryFn: () =>
       axios
-        .get("http://localhost:5000/meal-requests", {
+        .get("https://medical-camp-server-zeta.vercel.app/meal-requests", {
           params: {
             username: search.username || undefined,
             email: search.email || undefined,
@@ -41,9 +41,12 @@ const ServeMeal = () => {
   // useMutation hook for serving a meal
   const { mutate: serveMeal } = useMutation({
     mutationFn: (mealId) =>
-      axios.patch(`http://localhost:5000/meal-requests/${mealId}`, {
-        status: "delivered",
-      }),
+      axios.patch(
+        `https://medical-camp-server-zeta.vercel.app/meal-requests/${mealId}`,
+        {
+          status: "delivered",
+        }
+      ),
     onSuccess: () => {
       toast.success("Meal status updated to delivered");
       refetch(); // Refetch the meal requests after a successful mutation

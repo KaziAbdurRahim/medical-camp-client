@@ -47,7 +47,7 @@
 //     };
 
 //     // Example API call
-//     fetch("http://localhost:5000/upcoming-meals", {
+//     fetch("https://medical-camp-server-zeta.vercel.app/upcoming-meals", {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(newMeal),

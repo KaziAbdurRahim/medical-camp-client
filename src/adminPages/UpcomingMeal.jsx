@@ -29,21 +29,23 @@ const UpcomingMeal = () => {
   } = useQuery({
     queryKey: ["upcoming-meals"],
     queryFn: () =>
-      axios.get("http://localhost:5000/upcoming-meals").then((res) => res.data),
+      axios
+        .get("https://medical-camp-server-zeta.vercel.app/upcoming-meals")
+        .then((res) => res.data),
   });
 
   const handlePublish = (_id) => {
     // Call the backend to move the meal from the upcomingMeals to meals collection
     axios
-      .post("http://localhost:5000/meals/from-upcoming", {
+      .post("https://medical-camp-server-zeta.vercel.app/meals/from-upcoming", {
         upcomingMealId: _id,
       })
       .then((response) => {
-        toast.success("Meal published successfully!");
+        toast.success("Camp published successfully!");
         refetch(); // Refetch the data to update the upcoming meals list
       })
       .catch((error) => {
-        toast.error("Failed to publish meal. Try again.");
+        toast.error("Failed to publish Camp. Try again.");
       });
   };
 
@@ -83,15 +85,18 @@ const UpcomingMeal = () => {
     };
 
     axios
-      .post("http://localhost:5000/upcoming-meals", newMeal)
+      .post(
+        "https://medical-camp-server-zeta.vercel.app/upcoming-meals",
+        newMeal
+      )
       .then((response) => {
-        toast.success("Meal added successfully!");
+        toast.success("Camp added successfully!");
         reset();
         toggleModal();
         refetch(); // Refetch the data to reload the meals
       })
       .catch((error) => {
-        toast.error("Failed to add meal. Try again.");
+        toast.error("Failed to add Camp. Try again.");
       });
   };
 

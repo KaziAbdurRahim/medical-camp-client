@@ -18,8 +18,8 @@ const UserMealRequest = () => {
     queryFn: () =>
       axios
         .get(
-          `http://localhost:5000/meal-requests-user?page=${currentPage}&limit=${limit}`,
-          // .get(`http://localhost:5000/meal-requests-user?page=${currentPage}&limit=${limit}`,
+          `https://medical-camp-server-zeta.vercel.app/meal-requests-user?page=${currentPage}&limit=${limit}`,
+          // .get(`https://medical-camp-server-zeta.vercel.app/meal-requests-user?page=${currentPage}&limit=${limit}`,
           { params: { email: userEmail } }
         )
         .then((res) => {
@@ -61,9 +61,12 @@ const UserMealRequest = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete("http://localhost:5000/meal-requests-user", {
-            data: { id }, // Send the id in the 'data' property
-          })
+          .delete(
+            "https://medical-camp-server-zeta.vercel.app/meal-requests-user",
+            {
+              data: { id }, // Send the id in the 'data' property
+            }
+          )
           .then(() => {
             Swal.fire({
               title: "Cancelled!",

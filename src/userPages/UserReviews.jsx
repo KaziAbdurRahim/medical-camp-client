@@ -24,8 +24,8 @@ const UserReviews = () => {
     queryKey: ["userReviews", user?.email, limit, currentPage],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/reviews?email=${user.email}&page=${currentPage}&limit=${limit}`
-        // `http://localhost:5000/reviews?email=${user.email}&page=${currentPage}&limit=${limit}`
+        `https://medical-camp-server-zeta.vercel.app/reviews?email=${user.email}&page=${currentPage}&limit=${limit}`
+        // `https://medical-camp-server-zeta.vercel.app/reviews?email=${user.email}&page=${currentPage}&limit=${limit}`
       );
 
       return res.data;
@@ -51,8 +51,8 @@ const UserReviews = () => {
       if (result.isConfirmed) {
         axios
           .post(
-            "http://localhost:5000/review-delete",
-            // axios.post("http://localhost:5000/review-delete",
+            "https://medical-camp-server-zeta.vercel.app/review-delete",
+            // axios.post("https://medical-camp-server-zeta.vercel.app/review-delete",
             {
               email: user?.email, // Get email from AuthContext
               reviewId: id, // The review ID to delete
@@ -92,7 +92,7 @@ const UserReviews = () => {
   const handleUpdate = () => {
     // API call to update review
     axios
-      .post("http://localhost:5000/review-update", {
+      .post("https://medical-camp-server-zeta.vercel.app/review-update", {
         email: user?.email, // Logged-in user's email
         reviewId: currentReview._id, // Review ID
         mealId: currentReview.mealId, // Meal ID associated with the review

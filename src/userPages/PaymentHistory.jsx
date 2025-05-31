@@ -16,7 +16,9 @@ const PaymentHistory = () => {
   } = useQuery({
     queryKey: ["paymentHistory"],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5000/payments/${email}`);
+      const res = await axios.get(
+        `https://medical-camp-server-zeta.vercel.app/payments/${email}`
+      );
       return res.data;
     },
     enabled: !!email,

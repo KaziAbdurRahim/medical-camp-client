@@ -14,8 +14,10 @@ const AdminAllReviews = () => {
     queryKey: ["meals", currentPage, limit],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/meals?page=${currentPage}&limit=${limit}`)
-        // .get(`http://localhost:5000/meals?page=${currentPage}&limit=${limit}`)
+        .get(
+          `https://medical-camp-server-zeta.vercel.app/meals?page=${currentPage}&limit=${limit}`
+        )
+        // .get(`https://medical-camp-server-zeta.vercel.app/meals?page=${currentPage}&limit=${limit}`)
         .then((res) => res.data),
   });
 
@@ -37,7 +39,7 @@ const AdminAllReviews = () => {
       if (result.isConfirmed) {
         try {
           const response = await axios.patch(
-            `http://localhost:5000/meals/reset/${mealId}`
+            `https://medical-camp-server-zeta.vercel.app/meals/reset/${mealId}`
           );
 
           if (response.status === 200) {

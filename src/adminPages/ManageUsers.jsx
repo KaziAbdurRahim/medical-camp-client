@@ -15,7 +15,7 @@ const ManageUsers = () => {
     queryKey: ["users", username, email, page, limit],
     queryFn: () =>
       axios
-        .get("http://localhost:5000/users", {
+        .get("https://medical-camp-server-zeta.vercel.app/users", {
           params: {
             username: username.trim(),
             email: email.trim(),
@@ -43,7 +43,7 @@ const ManageUsers = () => {
       if (result.isConfirmed) {
         try {
           const response = await axios.post(
-            "http://localhost:5000/make-admin",
+            "https://medical-camp-server-zeta.vercel.app/make-admin",
             { userId }
           );
           Swal.fire("Success!", response.data.message, "success");

@@ -39,15 +39,15 @@ const Home = () => {
     },
   ];
   // useEffect(()=>{
-  //     fetch('http://localhost:5000/welcome')
+  //     fetch('https://medical-camp-server-zeta.vercel.app/welcome')
   //     .then(res=>res.json())
   //     .then(data=> console.log(data))
   // },[])
 
   const fetchMeals = async () => {
-    // const response = await axios.get(`http://localhost:5000/meals?category=All`);
+    // const response = await axios.get(`https://medical-camp-server-zeta.vercel.app/meals?category=All`);
     const response = await axios.get(
-      `http://localhost:5000/meals?category=All`
+      `https://medical-camp-server-zeta.vercel.app/meals?category=All`
     );
     return response.data.meals;
   };

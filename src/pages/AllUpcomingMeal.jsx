@@ -18,7 +18,9 @@ const AllUpcomingMeal = () => {
   } = useQuery({
     queryKey: ["meals", dorefetch],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5000/upcoming-meals`);
+      const res = await axios.get(
+        `https://medical-camp-server-zeta.vercel.app/upcoming-meals`
+      );
       return res.data; // Return the data from the response
     },
   });

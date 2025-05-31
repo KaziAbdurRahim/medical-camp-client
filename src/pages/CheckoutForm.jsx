@@ -24,9 +24,12 @@ const CheckoutForm = () => {
   useEffect(() => {
     if (totalPrice > 0) {
       axios
-        .post("http://localhost:5000/create-payment-intent", {
-          price: totalPrice,
-        })
+        .post(
+          "https://medical-camp-server-zeta.vercel.app/create-payment-intent",
+          {
+            price: totalPrice,
+          }
+        )
         .then((res) => {
           if (res.data?.clientSecret) {
             setClientSecret(res.data.clientSecret);
@@ -93,7 +96,10 @@ const CheckoutForm = () => {
       };
 
       try {
-        const res = await axios.post("http://localhost:5000/payments", payment);
+        const res = await axios.post(
+          "https://medical-camp-server-zeta.vercel.app/payments",
+          payment
+        );
         if (res.data?.insertedId) {
           Swal.fire({
             position: "top-end",

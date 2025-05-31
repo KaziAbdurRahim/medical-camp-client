@@ -88,7 +88,7 @@ const AuthProvider = ({ children }) => {
         //call create user api in backend
         try {
           const res = await axios.post(
-            "http://localhost:5000/create-user",
+            "https://medical-camp-server-zeta.vercel.app/create-user",
             newuser
           );
           // console.log('user created', res.data);
@@ -99,7 +99,7 @@ const AuthProvider = ({ children }) => {
         //check if user is admin
         try {
           const res2 = await axios.get(
-            `http://localhost:5000/is-admin?email=${currentUser.email}`
+            `https://medical-camp-server-zeta.vercel.app/is-admin?email=${currentUser.email}`
           );
           // console.log('isAdmin', res2.data);
           if (res2.data.isAdmin) {

@@ -18,8 +18,9 @@ const MealDetails = () => {
   // });
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["meal", mealId],
-    // queryFn: () => axios.get(`http://localhost:5000/meals/${mealId}`),
-    queryFn: () => axios.get(`http://localhost:5000/meals/${mealId}`),
+    // queryFn: () => axios.get(`https://medical-camp-server-zeta.vercel.app/meals/${mealId}`),
+    queryFn: () =>
+      axios.get(`https://medical-camp-server-zeta.vercel.app/meals/${mealId}`),
   });
 
   if (isLoading) return <Loading></Loading>;

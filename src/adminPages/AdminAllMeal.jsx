@@ -24,9 +24,12 @@ const AdminAllMeal = () => {
     queryKey: ["meals", sortBy, currentPage, limit],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/meals?page=${currentPage}&limit=${limit}`, {
-          params: { sortBy },
-        })
+        .get(
+          `https://medical-camp-server-zeta.vercel.app/meals?page=${currentPage}&limit=${limit}`,
+          {
+            params: { sortBy },
+          }
+        )
         .then((res) => {
           // console.log("API Response:", res.data);
           return res.data;
@@ -49,7 +52,7 @@ const AdminAllMeal = () => {
 
     try {
       const response = await axios.patch(
-        `http://localhost:5000/meals/${selectedMeal._id}`,
+        `https://medical-camp-server-zeta.vercel.app/meals/${selectedMeal._id}`,
         updatedMeal
       );
       if (response.status === 200) {
@@ -85,7 +88,7 @@ const AdminAllMeal = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/meals/${id}`)
+          .delete(`https://medical-camp-server-zeta.vercel.app/meals/${id}`)
           .then((response) => {
             if (response.status === 200) {
               Swal.fire("Deleted!", "The Camp has been deleted.", "success");

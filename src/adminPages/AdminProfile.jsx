@@ -16,7 +16,10 @@ const AdminProfile = () => {
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["admin", user.email],
-    queryFn: () => axios.get(`http://localhost:5000/admin/${user.email}`),
+    queryFn: () =>
+      axios.get(
+        `https://medical-camp-server-zeta.vercel.app/admin/${user.email}`
+      ),
   });
 
   if (isLoading) return <Loading />;

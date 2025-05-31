@@ -38,7 +38,7 @@ const AddMeal = () => {
 
     // Send meal to backend (example using fetch)
 
-    fetch("http://localhost:5000/meals", {
+    fetch("https://medical-camp-server-zeta.vercel.app/meals", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,11 +48,11 @@ const AddMeal = () => {
       .then((response) => response.json())
       .then((data) => {
         //console.log('Success:', data);
-        toast.success("Meal added successfully");
+        toast.success("Camp added successfully");
       })
       .catch((error) => {
         console.error("Error:", error);
-        toast.error("Error adding meal");
+        toast.error("Error adding Camp");
       });
   };
 

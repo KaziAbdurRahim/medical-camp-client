@@ -16,8 +16,8 @@ const AllMeals = () => {
   const [filterByPrice, setFilterByPrice] = useState(false);
 
   const fetchMeals = async () => {
-    // let url = `http://localhost:5000/meals?category=${category}`;
-    let url = `http://localhost:5000/meals?category=${category}`;
+    // let url = `https://medical-camp-server-zeta.vercel.app/meals?category=${category}`;
+    let url = `https://medical-camp-server-zeta.vercel.app/meals?category=${category}`;
     if (filterByPrice && (minPrice || maxPrice)) {
       if (!minPrice) {
         url += `&priceRange={"min":0,"max":${maxPrice}}`;
