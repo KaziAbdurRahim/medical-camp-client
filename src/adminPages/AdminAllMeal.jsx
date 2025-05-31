@@ -55,7 +55,7 @@ const AdminAllMeal = () => {
       if (response.status === 200) {
         Swal.fire(
           "Updated!",
-          "The meal has been updated successfully.",
+          "The Camp has been updated successfully.",
           "success"
         );
         refetch();
@@ -67,7 +67,7 @@ const AdminAllMeal = () => {
       console.error("Error updating meal:", error);
       Swal.fire(
         "Error!",
-        "Failed to update the meal. Please try again.",
+        "Failed to update the Camp. Please try again.",
         "error"
       );
     }
@@ -88,7 +88,7 @@ const AdminAllMeal = () => {
           .delete(`http://localhost:5000/meals/${id}`)
           .then((response) => {
             if (response.status === 200) {
-              Swal.fire("Deleted!", "The meal has been deleted.", "success");
+              Swal.fire("Deleted!", "The Camp has been deleted.", "success");
               refetch();
               queryClient.invalidateQueries(["meals"]);
             }
@@ -97,7 +97,7 @@ const AdminAllMeal = () => {
             console.error("Error deleting meal:", error);
             Swal.fire(
               "Error!",
-              "An error occurred while deleting the meal.",
+              "An error occurred while deleting the Camp.",
               "error"
             );
           });
@@ -136,7 +136,7 @@ const AdminAllMeal = () => {
             <tr>
               <th>#</th>
               <th>Title</th>
-              <th>Price</th>
+              <th>Fee</th>
               <th>Likes</th>
               <th>Reviews Count</th>
               <th>Rating</th>

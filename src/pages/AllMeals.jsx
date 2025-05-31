@@ -55,9 +55,9 @@ const AllMeals = () => {
             className="select select-bordered"
           >
             <option value="All">All</option>
-            <option value="Breakfast">3days</option>
-            <option value="Lunch">7days</option>
-            <option value="Dinner">10days</option>
+            <option value="3days">3days</option>
+            <option value="7days">7days</option>
+            <option value="10days">10days</option>
           </select>
         </div>
 

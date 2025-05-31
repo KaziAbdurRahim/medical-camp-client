@@ -43,7 +43,7 @@ const AdminAllReviews = () => {
           if (response.status === 200) {
             Swal.fire({
               title: "Deleted!",
-              text: "Reviews for this meal have been reset.",
+              text: "Reviews for this Camp have been reset.",
               icon: "success",
             });
             refetch();

@@ -44,7 +44,7 @@ const AdminProfile = () => {
             <strong>Email:</strong> {data.data.email}
           </p>
           <p className="text-lg text-gray-700">
-            <strong>No of Meals Added:</strong> {data.data.noOfMealsAdded}
+            <strong>No of Camps Added:</strong> {data.data.noOfMealsAdded}
           </p>
         </div>
       </div>
