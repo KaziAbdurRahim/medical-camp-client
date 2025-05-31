@@ -58,7 +58,7 @@ const AddMeal = () => {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mt-10 mb-5 text-center">Add Meal</h1>
+      <h1 className="text-2xl font-bold mt-10 mb-5 text-center">Add Camp</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="card-body shadow-2xl rounded-2xl"
@@ -70,7 +70,7 @@ const AddMeal = () => {
           <input
             type="text"
             {...register("title", { required: true })}
-            placeholder="Meal Title"
+            placeholder="camp Title"
             className="input input-bordered w-full"
           />
           {errors.title && (
@@ -84,11 +84,11 @@ const AddMeal = () => {
           <select
             {...register("category", { required: true })}
             className="input input-bordered w-full"
-            defaultValue="Breakfast"
+            defaultValue="3days"
           >
-            <option value="Breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Dinner">Dinner</option>
+            <option value="3days">3days</option>
+            <option value="7days">7days</option>
+            <option value="10days">10days</option>
           </select>
           {errors.category && (
             <span className="text-sm text-error my-2">
@@ -112,17 +112,17 @@ const AddMeal = () => {
           )}
 
           <label className="label">
-            <span className="label-text">Ingredients</span>
+            <span className="label-text">Healthcare Professional</span>
           </label>
           <input
             type="text"
             {...register("ingredients", { required: true })}
-            placeholder="Comma-separated ingredients"
+            placeholder="Comma-separated Healthcare Professional"
             className="input input-bordered w-full"
           />
           {errors.ingredients && (
             <span className="text-sm text-error my-2">
-              Ingredients are required
+              Healthcare Professionals are required
             </span>
           )}
 
@@ -131,7 +131,7 @@ const AddMeal = () => {
           </label>
           <textarea
             {...register("description", { required: true })}
-            placeholder="Meal Description"
+            placeholder="Camp Description"
             className="input input-bordered w-full"
           />
           {errors.description && (
@@ -141,19 +141,21 @@ const AddMeal = () => {
           )}
 
           <label className="label">
-            <span className="label-text">Price</span>
+            <span className="label-text">Camp fee</span>
           </label>
           <input
             type="number"
             {...register("price", { required: true })}
-            placeholder="Price"
+            placeholder="Fee"
             className="input input-bordered w-full"
           />
           {errors.price && (
-            <span className="text-sm text-error my-2">Price is required</span>
+            <span className="text-sm text-error my-2">
+              Camp fee is required
+            </span>
           )}
 
-          <button className="btn btn-primary mt-4">Add Meal</button>
+          <button className="btn btn-primary mt-4">Add Camp</button>
         </fieldset>
       </form>
     </div>
