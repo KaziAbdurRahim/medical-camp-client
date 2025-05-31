@@ -74,7 +74,7 @@ const ServeMeal = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h2 className="text-center font-bold text-3xl my-5 ">Serve Meal</h2>
+      <h2 className="text-center font-bold text-3xl my-5 ">Camp managment</h2>
 
       {/* Search Bar */}
       <div className="mb-5">
@@ -122,10 +122,10 @@ const ServeMeal = () => {
                         className="btn btn-primary"
                         onClick={() => handleServe(meal._id)}
                       >
-                        Serve
+                        Book
                       </button>
                     ) : (
-                      <span>Delivered</span>
+                      <span>Conformed</span>
                     )}
                   </td>
                 </tr>

@@ -100,7 +100,7 @@ const UpcomingMeal = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Upcoming Meals</h1>
+      <h1 className="text-3xl font-bold mb-6">Upcoming Camps</h1>
 
       <div className="overflow-x-auto">
         <table className="table">

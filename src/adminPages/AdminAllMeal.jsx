@@ -111,7 +111,7 @@ const AdminAllMeal = () => {
 
   return (
     <div className="overflow-x-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">All Meals</h2>
+      <h2 className="text-2xl font-bold mb-4">All Camps</h2>
 
       {/* Sort selector */}
       <div className="mb-4">
