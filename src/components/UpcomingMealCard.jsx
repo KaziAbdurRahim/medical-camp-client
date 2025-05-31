@@ -37,7 +37,7 @@ const UpcomingMealCard = ({
     try {
       // Send like request to the backend
       const response = await axios.post(
-        "https://honey-meal-server.vercel.app/like-upcoming-meal",
+        "http://localhost:5000/like-upcoming-meal",
         {
           mealId: _id,
           userEmail: user?.email, // Replace with the logged-in user's email

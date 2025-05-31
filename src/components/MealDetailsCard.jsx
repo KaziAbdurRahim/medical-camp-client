@@ -25,7 +25,7 @@ const MealDetailCard = ({ meal, refetch }) => {
     if (!isLiked) {
       try {
         const response = await axios.post(
-          `https://honey-meal-server.vercel.app/meals/${meal._id}/like`,
+          `http://localhost:5000/meals/${meal._id}/like`,
           { email: user.email }
         );
         setLikes(likes + 1); // Update likes count from server response
@@ -53,7 +53,7 @@ const MealDetailCard = ({ meal, refetch }) => {
 
     try {
       const response = await axios.post(
-        `https://honey-meal-server.vercel.app/meals/${meal._id}/review`,
+        `http://localhost:5000/meals/${meal._id}/review`,
         {
           email: user.email,
           comment: review,
@@ -81,13 +81,10 @@ const MealDetailCard = ({ meal, refetch }) => {
     }
     try {
       // console.log(user.email, meal._id)
-      const response = await axios.post(
-        "https://honey-meal-server.vercel.app/meal/request",
-        {
-          email: user.email,
-          mealId: meal._id,
-        }
-      );
+      const response = await axios.post("http://localhost:5000/meal/request", {
+        email: user.email,
+        mealId: meal._id,
+      });
       // console.log(response)
       if (response.data.message === "Need to buy subscription") {
         toast.info("Need to buy subscription");

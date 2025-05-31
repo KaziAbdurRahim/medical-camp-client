@@ -18,7 +18,7 @@ const UserMealRequest = () => {
     queryFn: () =>
       axios
         .get(
-          `https://honey-meal-server.vercel.app/meal-requests-user?page=${currentPage}&limit=${limit}`,
+          `http://localhost:5000/meal-requests-user?page=${currentPage}&limit=${limit}`,
           // .get(`http://localhost:5000/meal-requests-user?page=${currentPage}&limit=${limit}`,
           { params: { email: userEmail } }
         )
@@ -61,7 +61,7 @@ const UserMealRequest = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete("https://honey-meal-server.vercel.app/meal-requests-user", {
+          .delete("http://localhost:5000/meal-requests-user", {
             data: { id }, // Send the id in the 'data' property
           })
           .then(() => {

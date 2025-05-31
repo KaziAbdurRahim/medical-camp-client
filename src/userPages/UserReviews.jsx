@@ -24,7 +24,7 @@ const UserReviews = () => {
     queryKey: ["userReviews", user?.email, limit, currentPage],
     queryFn: async () => {
       const res = await axios.get(
-        `https://honey-meal-server.vercel.app/reviews?email=${user.email}&page=${currentPage}&limit=${limit}`
+        `http://localhost:5000/reviews?email=${user.email}&page=${currentPage}&limit=${limit}`
         // `http://localhost:5000/reviews?email=${user.email}&page=${currentPage}&limit=${limit}`
       );
 
@@ -51,7 +51,7 @@ const UserReviews = () => {
       if (result.isConfirmed) {
         axios
           .post(
-            "https://honey-meal-server.vercel.app/review-delete",
+            "http://localhost:5000/review-delete",
             // axios.post("http://localhost:5000/review-delete",
             {
               email: user?.email, // Get email from AuthContext
@@ -92,7 +92,7 @@ const UserReviews = () => {
   const handleUpdate = () => {
     // API call to update review
     axios
-      .post("https://honey-meal-server.vercel.app/review-update", {
+      .post("http://localhost:5000/review-update", {
         email: user?.email, // Logged-in user's email
         reviewId: currentReview._id, // Review ID
         mealId: currentReview.mealId, // Meal ID associated with the review

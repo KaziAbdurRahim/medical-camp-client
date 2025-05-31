@@ -27,120 +27,122 @@ import AllUpcomingMeal from "../pages/AllUpcomingMeal";
 import Payment from "../pages/Payment";
 import PaymentHistory from "../userPages/PaymentHistory";
 
-
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <HomeLayout></HomeLayout>,
+    children: [
+      {
         path: "/",
-        element: <HomeLayout></HomeLayout>,
-        children: [
-            {
-                path: "/",
-                element: <Home></Home>
-            },
-            {
-                path: "/meal/:id",
-                element: <MealDetails></MealDetails>,
-            },
-            {
-                path: '/meals',
-                element: <AllMeals></AllMeals>
-            },
-            {
-                path: '/upcoming-meals',
-                element: <AllUpcomingMeal></AllUpcomingMeal>
-            },
-            {
-                path: '/payments',
-                element: <Payment></Payment>
-            }
-            
-        ]
-    },
-    {
-        path: "/auth",
-        element: <HomeLayout />,
-        children: [
-            {
-                path: "/auth/login",
-                element: <Login />,
-            },
-            {
-                path: "/auth/register",
-                element: <Register />,
-            }
-        ],
-    },
-    //admin dashboard
-    {
+        element: <Home></Home>,
+      },
+      {
+        path: "/meal/:id",
+        element: <MealDetails></MealDetails>,
+      },
+      {
+        path: "/meals",
+        element: <AllMeals></AllMeals>,
+      },
+      {
+        path: "/upcoming-meals",
+        element: <AllUpcomingMeal></AllUpcomingMeal>,
+      },
+      {
+        path: "/payments",
+        element: <Payment></Payment>,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <HomeLayout />,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login />,
+      },
+      {
+        path: "/auth/register",
+        element: <Register />,
+      },
+    ],
+  },
+  //admin dashboard
+  {
+    path: "/admin",
+    // <AdminRoute><AdminLayout></AdminLayout></AdminRoute>
+    element: (
+      <AdminRoute>
+        <AdminLayout></AdminLayout>
+      </AdminRoute>
+    ),
+    children: [
+      {
         path: "/admin",
-        element: <AdminRoute><AdminLayout></AdminLayout></AdminRoute>,
-        children: [
-            {
-                path: "/admin",
-                element: <AdminDashboard></AdminDashboard>
-            },
-            {
-                path: "/admin/profile",
-                element: <AdminProfile></AdminProfile>
-            },
-            {
-                path: "/admin/add-meal",
-                element: <AddMeal></AddMeal>
-            },
-            {
-                path: "/admin/add-upcomingmeal",
-                element: <UpcomingMeal></UpcomingMeal>
-            },
-            {
-                path: "/admin/serve-meal",
-                element: <ServeMeal></ServeMeal>
-            },
-            {
-                path: "/admin/all-meal",
-                element: <AdminAllMeal></AdminAllMeal>
-            },
-            {
-                path: "/admin/all-reviews",
-                element: <AdminAllReviews></AdminAllReviews>
-            },
-            {
-                path: "/admin/manage-user",
-                element: <ManageUsers></ManageUsers>
-            },
-        ]
-    },
-    // user dashboard
-    {
+        element: <AdminDashboard></AdminDashboard>,
+      },
+      {
+        path: "/admin/profile",
+        element: <AdminProfile></AdminProfile>,
+      },
+      {
+        path: "/admin/add-meal",
+        element: <AddMeal></AddMeal>,
+      },
+      {
+        path: "/admin/add-upcomingmeal",
+        element: <UpcomingMeal></UpcomingMeal>,
+      },
+      {
+        path: "/admin/serve-meal",
+        element: <ServeMeal></ServeMeal>,
+      },
+      {
+        path: "/admin/all-meal",
+        element: <AdminAllMeal></AdminAllMeal>,
+      },
+      {
+        path: "/admin/all-reviews",
+        element: <AdminAllReviews></AdminAllReviews>,
+      },
+      {
+        path: "/admin/manage-user",
+        element: <ManageUsers></ManageUsers>,
+      },
+    ],
+  },
+  // user dashboard
+  {
+    path: "/user",
+    element: <UserLayout></UserLayout>,
+    children: [
+      {
         path: "/user",
-        element: <UserLayout></UserLayout>,
-        children: [
-            {
-                path: "/user",
-                element: <UserDashboard></UserDashboard>
-            },
-            {
-                path:"/user/profile",
-                element: <UserProfile></UserProfile>
-            },
-            {
-                path:"/user/meals",
-                element: <UserMealRequest></UserMealRequest>
-            },
-            {
-                path:"/user/reviews",
-                element: <UserReviews></UserReviews>
-            },
-            {
-                path:"/user/history",
-                element: <PaymentHistory></PaymentHistory>
-            },
-        
-    ]
-    },
-    {
-        path: "*",
-        element: <Page404></Page404>
-    }
-])
+        element: <UserDashboard></UserDashboard>,
+      },
+      {
+        path: "/user/profile",
+        element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "/user/meals",
+        element: <UserMealRequest></UserMealRequest>,
+      },
+      {
+        path: "/user/reviews",
+        element: <UserReviews></UserReviews>,
+      },
+      {
+        path: "/user/history",
+        element: <PaymentHistory></PaymentHistory>,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <Page404></Page404>,
+  },
+]);
 
 export default router;

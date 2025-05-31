@@ -39,15 +39,15 @@ const Home = () => {
     },
   ];
   // useEffect(()=>{
-  //     fetch('https://honey-meal-server.vercel.app/welcome')
+  //     fetch('http://localhost:5000/welcome')
   //     .then(res=>res.json())
   //     .then(data=> console.log(data))
   // },[])
 
   const fetchMeals = async () => {
-    // const response = await axios.get(`https://honey-meal-server.vercel.app/meals?category=All`);
+    // const response = await axios.get(`http://localhost:5000/meals?category=All`);
     const response = await axios.get(
-      `https://honey-meal-server.vercel.app/meals?category=All`
+      `http://localhost:5000/meals?category=All`
     );
     return response.data.meals;
   };

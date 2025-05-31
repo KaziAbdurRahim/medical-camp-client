@@ -59,6 +59,9 @@ const Login = () => {
         <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
           <form onSubmit={handleSubmit(loginUser)} className="card-body">
             <fieldset className="fieldset">
+              <p>
+                <span className="font-bold">Admin: </span>a@a.com/Aa123456
+              </p>
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
@@ -85,10 +88,7 @@ const Login = () => {
           </form>
           <div className="divider">OR</div>
           <div className="form-control card-body pb-0">
-            <button
-              className="btn btn-neutral"
-              onClick={googleLogin}
-            >
+            <button className="btn btn-neutral" onClick={googleLogin}>
               <FcGoogle className="text-xl mr-2" /> Sign in with Google
             </button>
             <Link to="/auth/register" className="my-3 mb-5 link link-primary">
